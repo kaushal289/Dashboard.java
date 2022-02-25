@@ -1,4 +1,13 @@
-package questions;
+package Week1to8;
+
+/*
+Week6
+There are number of application services communicating with each other directly or
+indirectly with the help of other services.
+Return critical path between services that if it crashes then some of the services will not
+able to communicate with other services making application unable to execute certain
+requests.
+ */
 
 public class Week6 {
     int matrix[][];

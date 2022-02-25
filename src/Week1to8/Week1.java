@@ -1,6 +1,12 @@
-package questions;
+/*
+Week 1
+You are provided an array of number and the target value k. explore all possible ways to
+form an expression by inserting operator such as +, - , * in a such a way that expression
+evaluates to the number k.
+Return all expression in the form of string leading to the value k.
 
-
+*/
+package Week1to8;
 import java.util.*;
 
 public class Week1 {

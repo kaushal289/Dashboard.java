@@ -1,11 +1,14 @@
-package questions;
-
-
-
+package Week1to8;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+
+/*
+Week4
+your given a coordinate of graph, with x y plane, return length of straight line with
+maximum number of points on that line.
+ */
 
 
 public class Week4 {

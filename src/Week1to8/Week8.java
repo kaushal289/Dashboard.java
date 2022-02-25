@@ -1,4 +1,4 @@
-package questions;
+package Week1to8;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -6,8 +6,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
+/*
+Week 8
+You are provided with the chemical formula, return maximum number of atoms
+represented in chemical formula.
 
-public class week8 {
+ */
+
+public class Week8 {
     public static String countOfAtoms(String formula) {
         Stack<Map<String,Integer>> stack= new Stack<>();
         Map<String,Integer> map= new HashMap<>();
@@ -61,6 +67,15 @@ public class week8 {
     public static void main(String[] args) {
         String str = "Mg (OH)2";
         System.out.println(countOfAtoms(str));
+        int n=str.length();
+
+        char indexnum = str.charAt(n-1);
+        char indexh = str.charAt(n-3);
+        char indexo = str.charAt(n-4);
+
+
+        System.out.println("the index of "+indexh + "*" + indexnum);
+        System.out.println("the index of "+indexo + "*" + indexnum);
 
 
 

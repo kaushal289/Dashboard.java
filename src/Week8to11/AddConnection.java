@@ -1,11 +1,13 @@
 package Week8to11;
 import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.*;
+import java.util.List;
 
 //Class to add connection between route
 class AddConnectionFrame {
@@ -246,6 +248,7 @@ class AddConnectionFrame {
         f.setVisible(true);
         f.setResizable(false);
         f.setBounds(800, 200, 450, 600);
+        f.getContentPane().setBackground(Color.yellow);
         f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 

@@ -1,6 +1,13 @@
-package questions;
+package Week1to8;
 
-public class week7 {
+/*
+ Week7
+There are N nodes representing the number of houses in the form of tree, return
+minimum number of nodes in which you can start fire in order to burn all house.
+Note that fire starts on any node can burn its children, parents and itself.
+
+ */
+public class Week7 {
     static class Node {
         public int key;
         public Node left, right;

@@ -1,7 +1,20 @@
-package questions;
+package Week1to8;
 import java.util.Arrays;
 
-public class week5 {
+/*
+Week 5
+You are given n dimensional array, return matrix with assigned rank to each element of
+provided array based on below rules.
+if x and y exist in same row and column then,
+if x>y then rank(x)>rank(y)
+if x<y then rank(x)<ran(y)
+if x=y then rank(x)=rank(y)
+Note that: rank is an integer value greater than its neighboring element and it starts
+from 1
+
+ */
+
+public class Week5 {
 
     //sorting matrix in ascending order and storing the elements in a one dimensional array
     public static int[] sortMartix(int mat[][]) {

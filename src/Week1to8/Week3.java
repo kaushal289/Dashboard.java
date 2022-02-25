@@ -1,4 +1,11 @@
-package questions;
+package Week1to8;
+
+/*
+Week3
+Given a string of number, return missing smallest positive integer. the time complexity for
+given algorithm must be 0(n)
+
+ */
 
 public class Week3 {
     public int smallestnumber(String givennumber){

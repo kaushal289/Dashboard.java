@@ -62,6 +62,7 @@ class Select {
         f.setVisible(true);
         f.setResizable(false);
         f.setBounds(800, 200, 600, 600);
+        f.getContentPane().setBackground(Color.yellow);
         f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }

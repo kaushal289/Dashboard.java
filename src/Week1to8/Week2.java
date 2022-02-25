@@ -1,4 +1,4 @@
-package questions;
+package Week1to8;
 
 class LinkedList
 {

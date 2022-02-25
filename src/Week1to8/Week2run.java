@@ -1,4 +1,12 @@
-package questions;
+package Week1to8;
+
+/*
+Week2
+You are provided with kth number of linked list, merge all linked list to a single linked list
+in such a way that at any certain point sum of all values to that point must be positive.
+
+*/
+
 
 public class Week2run {
 

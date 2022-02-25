@@ -2,6 +2,7 @@ package Week8to11;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -21,13 +22,12 @@ public class Viewroute {
         backBtn = new JButton("Back to Dashboard");
 
 //      Adding components in frame
-        f.add(updateBtn).setBounds(5,200,200,30);
         f.add(deleteBtn).setBounds(5,250,200,30);
         f.add(backBtn).setBounds(5,15,200,30);
 
 
 //      Declaring arraylist to store list of data from routes
-        String[] column = {"route ID","Distance", "Description"};
+        String[] column = {"route ID","Distance"};
         List<String> list = new ArrayList<>();
         ArrayList<String[]> route = new ArrayList<>();
         File file = new File("routes.txt");
@@ -151,6 +151,7 @@ public class Viewroute {
         f.setVisible(true);
         f.setResizable(false);
         f.setBounds(400, 100, 1000, 570);
+        f.getContentPane().setBackground(Color.yellow);
         f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
     }

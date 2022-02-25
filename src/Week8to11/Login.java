@@ -1,6 +1,7 @@
 package Week8to11;
 import javax.swing.*;
 import java.io.File;
+import java.awt.Color;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -16,9 +17,14 @@ class LoginFrame {
         JTextField userTextField = new JTextField();
         JPasswordField passwordField = new JPasswordField();
         JButton loginButton = new JButton("LOGIN");
+        loginButton.setBackground(Color.BLACK);
+        loginButton.setForeground(Color.white);
+
         JButton backButton = new JButton("Back");
         JButton registerButton = new JButton("Register");
-        JButton resetButton = new JButton("RESET");
+        registerButton.setBackground(Color.BLACK);
+        registerButton.setForeground(Color.white);
+
         JCheckBox showPassword = new JCheckBox("Show Password");
 
 //        Adding components in frame
@@ -26,8 +32,7 @@ class LoginFrame {
         f.add(passwordLabel).setBounds(50, 220, 100, 30);
         f.add(userTextField).setBounds(150, 150, 150, 30);
         f.add(passwordField).setBounds(150, 220, 150, 30);
-        f.add(loginButton).setBounds(50, 300, 100, 30);
-        f.add(resetButton).setBounds(200, 300, 100, 30);
+        f.add(loginButton).setBounds(130, 300, 100, 30);
         f.add(showPassword).setBounds(150, 250, 150, 30);
         f.add(backButton).setBounds(5,25,100,30);
         f.add(registerButton).setBounds(115,25,100,30);
@@ -74,11 +79,6 @@ class LoginFrame {
 
         });
 
-        resetButton.addActionListener(e -> {
-            userTextField.setText("");
-            passwordField.setText("");
-        });
-
         showPassword.addActionListener(e -> {
             if (showPassword.isSelected()) {
                 passwordField.setEchoChar((char) 0);
@@ -101,6 +101,7 @@ class LoginFrame {
         f.setVisible(true);
         f.setResizable(false);
         f.setBounds(800, 200, 370, 520);
+        f.getContentPane().setBackground(Color.yellow);
         f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }

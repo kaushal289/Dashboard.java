@@ -138,6 +138,7 @@ public class ViewConnection {
         JFrame frame = new JFrame();
         frame.getContentPane().add(vs);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setBackground(Color.yellow);
         frame.pack();
         frame.setVisible(true);
     }
