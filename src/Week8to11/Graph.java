@@ -86,7 +86,6 @@ public class Graph {
                     if(newDistance<minDistance[j]) {
                         minDistance[j]=newDistance;
                         prevPath[j]=minVertex;
-
                     }
                 }
             }
