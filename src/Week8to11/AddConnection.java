@@ -1,5 +1,6 @@
 package Week8to11;
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
@@ -11,34 +12,75 @@ import java.util.List;
 
 //Class to add connection between route
 class AddConnectionFrame {
+    ImageIcon image_bg;
+    JLabel lbl_img;
     AddConnectionFrame(){
 //        Initialising components for swing
-        JFrame f = new JFrame("Add route Panel");
-        JLabel route1 = new JLabel("route A");
-        JLabel route2 = new JLabel("route B");
-        JLabel dTextLabel = new JLabel("Distance (in km)");
+        JFrame f = new JFrame("Add Routes Panel");
+
+        JLabel route1 = new JLabel("Start route");
+        route1.setFont(new Font("BankGothic Lt BT", Font.BOLD, 30));
+        f.add(route1).setBounds(60, 150, 300, 30);
+
+        JLabel dTextLabel = new JLabel("Distance(KM)");
+        dTextLabel.setFont(new Font("BankGothic Lt BT", Font.BOLD, 30));
+        f.add(dTextLabel).setBounds(300, 150, 300, 30);
+
+        JLabel route2 = new JLabel("End route");
+        route2.setFont(new Font("BankGothic Lt BT", Font.BOLD, 30));
+        f.add(route2).setBounds(560, 150, 200, 30);
+
+        JLabel distanceLabel = new JLabel("");
+        distanceLabel.setFont(new Font("Baskerville Old Face", Font.BOLD, 30));
+        f.add(distanceLabel).setBounds(210, 50, 500, 30);
+
+
+
+        JLabel pathLabel = new JLabel("");
+        pathLabel.setFont(new Font("Baskerville Old Face", Font.BOLD, 25));
+        f.add(pathLabel).setBounds(210, 100, 500, 30);
+
+
+
+        JButton connect  = new JButton("Connect");
+        connect.setFont(new Font("BankGothic Lt BT", Font.BOLD, 30));
+        connect.setBorder(new LineBorder(Color.black,2));
+        connect.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        Color col3 = new Color(1, 84, 2);
+        connect.setBackground(col3);
+        connect.setForeground(Color.white);
+        f.add(connect).setBounds(100, 300, 250, 50);
+
+        JButton disconnect  = new JButton("Disconnect");
+        disconnect.setFont(new Font("BankGothic Lt BT", Font.BOLD, 30));
+        disconnect.setBorder(new LineBorder(Color.black,2));
+        disconnect.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        disconnect.setBackground(Color.red);
+        disconnect.setForeground(Color.white);
+        f.add(disconnect).setBounds(450, 300, 250, 50);
+
+        JButton optimalPath = new JButton("Optimal Path");
+        optimalPath.setFont(new Font("BankGothic Lt BT", Font.BOLD, 30));
+        optimalPath.setBorder(new LineBorder(Color.black,2));
+        optimalPath.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        optimalPath.setBackground(col3);
+        optimalPath.setForeground(Color.white);
+        f.add(optimalPath).setBounds(100,400,250,50);
 
         JButton backButton = new JButton("Back");
-        JButton connect  = new JButton("Connect");
-        JButton disconnect  = new JButton("Disconnect");
-        JButton optimalPath = new JButton("Optimal Path");
-        JLabel distanceLabel = new JLabel("");
-        JLabel pathLabel = new JLabel("");
+        backButton.setFont(new Font("BankGothic Lt BT", Font.BOLD, 30));
+        backButton.setBorder(new LineBorder(Color.black,2));
+        backButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        backButton.setBackground(Color.red);
+        backButton.setForeground(Color.white);
+        f.add(backButton).setBounds(450,400,250,50);
 
         JTextField dTextField = new JTextField();
+        dTextField.setFont(new Font("BankGothic Lt BT", Font.BOLD, 30));
         dTextField.setText("0");
+        f.add(dTextField).setBounds(330, 200, 150, 30);
 
 //      Adding components in frame
-        f.add(route1).setBounds(50, 150, 100, 30);
-        f.add(route2).setBounds(330, 150, 150, 30);
-        f.add(connect).setBounds(110, 300, 200, 30);
-        f.add(disconnect).setBounds(110, 400, 200, 30);
-        f.add(backButton).setBounds(5,25,150,30);
-        f.add(optimalPath).setBounds(110,350,200,30);
-        f.add(distanceLabel).setBounds(110, 450, 500, 30);
-        f.add(pathLabel).setBounds(110, 500, 500, 30);
-        f.add(dTextField).setBounds(50, 250, 150, 30);
-        f.add(dTextLabel).setBounds(50, 220, 100, 30);
 
 //        Getting list of routes from txt file
         List<String> list = new ArrayList<>();
@@ -67,9 +109,13 @@ class AddConnectionFrame {
 
 //        Declaring combobox to select route data
         JComboBox<String> combobox = new JComboBox<>(new Vector<>(route1List));
+        combobox.setFont(new Font("BankGothic Lt BT", Font.BOLD, 20));
+        f.add(combobox).setBounds(60,200,180,30);
+
+
         JComboBox<String> combobox2 = new JComboBox<>(new Vector<>(route1List));
-        f.add(combobox).setBounds(15,185,180,30);
-        f.add(combobox2).setBounds(250,185,180,30);
+        combobox2.setFont(new Font("BankGothic Lt BT", Font.BOLD, 20));
+        f.add(combobox2).setBounds(560,200,180,30);
 
 //        Declaring arraylist to store connected data
         ArrayList<String []> connectedData = new ArrayList<>();
@@ -240,14 +286,19 @@ class AddConnectionFrame {
 
         backButton.addActionListener(e -> {
             f.dispose();
-            new Select();
+            Select sel=new Select();
+            sel.select();
         });
 
-//
+        image_bg=new ImageIcon(Objects.requireNonNull(getClass().getResource("map.png")));
+        lbl_img=new JLabel(image_bg);
+        lbl_img.setBounds(0,0,800,600);
+        f.add(lbl_img);
+
         f.setLayout(null);
         f.setVisible(true);
         f.setResizable(false);
-        f.setBounds(800, 200, 450, 600);
+        f.setBounds(400, 100, 800, 600);
         f.getContentPane().setBackground(Color.yellow);
         f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }

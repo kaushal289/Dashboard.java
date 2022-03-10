@@ -1,35 +1,75 @@
 package Week8to11;
-
+import javax.swing.SwingConstants;
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.util.Objects;
+
 
 class Select {
-    Select() {
-        JFrame f = new JFrame("SELECT ONE");
+    ImageIcon image_bg;
+    JLabel lbl_img;
+
+
+    public void select() {
+        JFrame f = new JFrame("Everest Transportation");
         JButton addroute, showroute, addConnection, showConnection;
         JLabel titleLabel;
 
-        titleLabel = new JLabel("CHOOSE ONE");
-        titleLabel.setFont(new Font("Serif", Font.PLAIN, 45));
+        titleLabel = new JLabel("Everest Transportation");
+        titleLabel.setFont(new Font("Algerian", Font.BOLD, 50));
+        Color myWhite = new Color(7, 64, 122);
+        titleLabel.setForeground(myWhite);
         f.add(titleLabel);
-        titleLabel.setBounds(150, 30, 3000, 100);
+        titleLabel.setBounds(50, 30, 1000, 100);
 
-        addroute = new JButton("Add route");
+        ImageIcon icon = new ImageIcon(Objects.requireNonNull(getClass().getResource("loc.png")));
+        addroute = new JButton("Add route", icon);
+        addroute.setVerticalTextPosition(SwingConstants.BOTTOM);
+        addroute.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        addroute.setHorizontalTextPosition(SwingConstants.CENTER);
+        addroute.setFont(new Font("BankGothic Lt BT", Font.BOLD, 30));
         f.add(addroute);
-        addroute.setBounds(50, 150, 500, 50);
+        Color col2 = new Color(255, 238, 116);
+        addroute.setBorder(new LineBorder(Color.green,6));
+        addroute.setForeground(Color.black);
+        addroute.setBackground(col2);
+        addroute.setBounds(50, 150, 330, 160);
 
 
-        showroute = new JButton("View route");
+        ImageIcon icon1 = new ImageIcon(Objects.requireNonNull(getClass().getResource("glov.png")));
+        showroute = new JButton("View Routes", icon1);
+        showroute.setVerticalTextPosition(SwingConstants.BOTTOM);
+        showroute.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        showroute.setHorizontalTextPosition(SwingConstants.CENTER);
+        showroute.setFont(new Font("BankGothic Lt BT", Font.BOLD, 30));
+        showroute.setBorder(new LineBorder(Color.green,6));
+        showroute.setBackground(col2);
         f.add(showroute);
-        showroute.setBounds(50, 250, 500, 50);
+        showroute.setBounds(400, 150, 330, 160);
 
-        addConnection = new JButton("Add Connection");
+
+        ImageIcon icon2 = new ImageIcon(Objects.requireNonNull(getClass().getResource("conn.png")));
+        addConnection = new JButton("Add Connection", icon2);
+        addConnection .setVerticalTextPosition(SwingConstants.BOTTOM);
+        addConnection.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        addConnection .setHorizontalTextPosition(SwingConstants.CENTER);
+        addConnection .setFont(new Font("BankGothic Lt BT", Font.BOLD, 30));
+        addConnection .setBorder(new LineBorder(Color.green,6));
+        addConnection .setBackground(col2);
         f.add(addConnection);
-        addConnection.setBounds(50, 350, 500, 50);
+        addConnection.setBounds(50, 350, 330, 160);
 
-        showConnection = new JButton("Show Connection");
+        ImageIcon icon3 = new ImageIcon(Objects.requireNonNull(getClass().getResource("show.png")));
+        showConnection = new JButton("Show Connection", icon3);
+        showConnection .setVerticalTextPosition(SwingConstants.BOTTOM);
+        showConnection.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        showConnection .setHorizontalTextPosition(SwingConstants.CENTER);
+        showConnection .setFont(new Font("BankGothic Lt BT", Font.BOLD, 30));
+        showConnection .setBorder(new LineBorder(Color.green,6));
+        showConnection .setBackground(col2);
         f.add(showConnection);
-        showConnection.setBounds(50, 450, 500, 50);
+        showConnection.setBounds(400, 350, 330, 160);
 
         addroute.addActionListener(e -> {
             f.dispose();
@@ -57,12 +97,19 @@ class Select {
         f.setVisible(true);
         f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
 
+        image_bg=new ImageIcon(Objects.requireNonNull(getClass().getResource("map.png")));
+        lbl_img=new JLabel(image_bg);
+        lbl_img.setBounds(0,0,800,600);
+        f.add(lbl_img);
 
         f.setLayout(null);
         f.setVisible(true);
         f.setResizable(false);
-        f.setBounds(800, 200, 600, 600);
-        f.getContentPane().setBackground(Color.yellow);
+        f.setBounds(400, 100, 800, 600);
         f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    }
+    public static void main(String[] args){
+        Select sel=new Select();
+        sel.select();
     }
 }

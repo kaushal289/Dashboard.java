@@ -8,7 +8,9 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import javax.swing.JFrame;
+import javax.swing.*;
+import javax.swing.border.LineBorder;
+
 import org.apache.commons.collections15.Transformer;
 import edu.uci.ics.jung.algorithms.layout.CircleLayout;
 import edu.uci.ics.jung.graph.DirectedSparseGraph;
@@ -18,10 +20,19 @@ import edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position;
 
 public class ViewConnection {
     ViewConnection(){
+        JButton backButton = new JButton("Back");
+        backButton.setFont(new Font("BankGothic Lt BT", Font.BOLD, 20));
+        backButton.setBorder(new LineBorder(Color.black,2));
+        backButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        backButton.setBackground(Color.red);
+        backButton.setForeground(Color.white);
+
+
         DirectedSparseGraph<String, String> g = new DirectedSparseGraph<>();
         List<String> list = new ArrayList<>();
         File file = new File("routes.txt");
         ArrayList<String> route1List = new ArrayList<>();
+
         if(file.exists()){
             try {
                 list = Files.readAllLines(file.toPath(), Charset.defaultCharset());
@@ -104,6 +115,7 @@ public class ViewConnection {
             for(int j=0; j<matrix[i].length; j++) {
                 if (matrix[i][j]>0) {
                     String[] detail = {routeList.get(i), routeList.get(j)};
+
                     connectedData.add(detail);
                 }
             }
@@ -116,6 +128,7 @@ public class ViewConnection {
         int k=0;
         for (String[] datum : data) {
             g.addEdge(String.valueOf(k), datum[0], datum[1]);
+
             k++;
         }
 
@@ -127,18 +140,25 @@ public class ViewConnection {
 
         VisualizationImageServer<String, String> vs =
                 new VisualizationImageServer<>(
-                        new CircleLayout<>(g), new Dimension(500, 500));
+                        new CircleLayout<>(g), new Dimension(800, 600));
 
-
-
+        JFrame frame = new JFrame();
+        backButton.addActionListener(e -> {
+            frame.dispose();
+            Select sel=new Select();
+            sel.select();
+        });
         vs.getRenderContext().setEdgeStrokeTransformer(edgeStrokeTransformer);
         vs.getRenderContext().setVertexLabelTransformer(new ToStringLabeller<>());
         vs.getRenderContext().setEdgeLabelTransformer(new ToStringLabeller<>());
         vs.getRenderer().getVertexLabelRenderer().setPosition(Position.N);
-        JFrame frame = new JFrame();
+
+        frame.add(backButton).setBounds(20,20,100,30);
         frame.getContentPane().add(vs);
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setBackground(Color.yellow);
+        frame.setBounds(400, 100, 800, 600);
+
         frame.pack();
         frame.setVisible(true);
     }
